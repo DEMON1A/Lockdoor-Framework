@@ -6,6 +6,8 @@ from lockdoors import shrts
 from pathlib import Path
 from datetime import datetime
 from time import sleep
+from shlex import quote
+
 #VAR
 yes = set(['yes', 'y', 'ye', 'Y'])
 no = set(['no', 'n', 'nop', 'N'])
@@ -81,7 +83,7 @@ def findmyhash():
         """)
         algo = input("What Algo you want to use ? : ")
         hash = sanitize.bash_escape_restrictor(input("Enter the hash : "))
-        os.system("python2 " + shrts.getinstalldir() + tool_dir + "/findmyhash.py " +algo+ " -h " +hash)
+        os.system("python2 " + shrts.getinstalldir() + tool_dir + "/findmyhash.py " + quote(algo) + " -h " +hash)
         shrts.okenc()
     else:
         shrts.prilogspc()
